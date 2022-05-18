@@ -1,15 +1,10 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { contactsFilterSlice, contactsItemSlice, contactsOperation} from '../redux';
-export const useFilter = () => {
-    const dispatch = useDispatch();
-    useEffect(() => { dispatch(contactsOperation.fetchContacts()) }, [dispatch]);
+import {  contactsFilterSlice } from '../redux'
+import {  useSelector } from 'react-redux'
 
-    const items = useSelector(contactsItemSlice.getItemsValue);
+export const useFilter =  (data) => { 
     const filter = useSelector(contactsFilterSlice.getFilterValue);
-
-    const filteredContacts = filter ? items.filter(item =>
-    item.name.toLowerCase().includes(filter.toLowerCase())) : items; 
+    const filteredContacts = filter ? data.filter(item =>
+    item.name.toLowerCase().includes(filter.toLowerCase())) : data; 
     
     return filteredContacts;   
 }

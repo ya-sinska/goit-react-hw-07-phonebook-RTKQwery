@@ -4,6 +4,7 @@ import { Filter } from "../Filter/Filter";
 import { Container, Title, SecondTitle } from "./App.styled";
 
 export const App = () => {
+  
   return (
     <Container>
         <Title>Phonebook</Title>

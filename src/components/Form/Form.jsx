@@ -8,7 +8,7 @@ const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-я
 // Component Forma
 export const Forma = () => {
     const { register, handleSubmit, errors, onSubmit } = useFormValues.useFormValues();
-
+    
     return (
         <ContactForm
             onSubmit={handleSubmit(onSubmit)}
@@ -39,8 +39,8 @@ export const Forma = () => {
                 {...register("number", {
                     required: "This is required",
                     maxLength: {
-                        value: 12,
-                        message: "Max length is 12 symbols"
+                        value: 13,
+                        message: "Max length is 13 symbols"
                     },
                     pattern: {
                         value: phoneRegExp,

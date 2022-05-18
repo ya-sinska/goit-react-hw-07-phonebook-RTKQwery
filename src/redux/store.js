@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { contactsFilterSlice } from './contactsFilterSlice'
-import { contactsItemSlice } from './contactsItemSlice';
+import { contactsItemApi } from './contactsItemSlice';
 
 export const store = configureStore({
     reducer: {
-        items: contactsItemSlice.reducer,
+        [contactsItemApi.reducerPath]: contactsItemApi.reducer,
         filter: contactsFilterSlice.reducer,
     },
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(contactsItemApi.middleware),
 });
 
 
