@@ -1,27 +1,25 @@
 import styled from "@emotion/styled";
-export const Item = styled.li`
+import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
+import ListItem from '@mui/material/ListItem';
+import Avatar from '@mui/material/Avatar';
+
+export const Item = styled(ListItem)`
 &:not(:last-child){
     margin-bottom:10px;
 }
-font-size:18px;
-font-weight:400;
-list-style: square;
-list-style-position: inside;
+min-width:370px;
 `
-
+export const AvatarIcon = styled(Avatar)`
+margin-right:10px;
+`
 export const Name = styled.span`
 text-transform: capitalize;
 `
-export const Delete = styled.button`
-display: inline-flex;
-justify-content: center;
-align-items: center;
-margin-left:10px;
-min-width: 60px;
-height: 24px;
-color: hsl(210deg 8% 20%);
-background-color: tomato;
-border: 0;
-border-radius: 12px;
-font-family: inherit;
+export const Delete = styled(DeleteIcon)`
+margin-right: -10px; 
+margin-left: 4px;
+`
+export const BtnDelete = styled(Button)`
+min-width:40px;
 `

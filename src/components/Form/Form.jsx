@@ -1,5 +1,5 @@
 import { useFormValues } from 'hooks';
-import { ContactForm, InputField, Label, Error, BtnSubmitForm } from './Form.styled'
+import { PaperForm, InputField, Label, Error, BtnSubmitForm } from './Form.styled'
 
 // Patterns
 const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
@@ -10,10 +10,11 @@ export const Forma = () => {
     const { register, handleSubmit, errors, onSubmit } = useFormValues.useFormValues();
     
     return (
-        <ContactForm
+        <PaperForm>
+            <form
             onSubmit={handleSubmit(onSubmit)}
             autoComplete='off'
-        >
+            >
             <Label htmlFor='name'> Name </Label>             
             <InputField
                 id="name"
@@ -50,7 +51,9 @@ export const Forma = () => {
                 placeholder="+38(000)000-00-00"
             />
             {errors.number&&<Error>{errors.number?.message }</Error>  }     
-            <BtnSubmitForm type="submit">Add contact</BtnSubmitForm>      
-      </ContactForm>
+            <BtnSubmitForm variant="contained" type="submit">Add contact</BtnSubmitForm>      
+            </form>
+        </PaperForm>
+
     )
 }

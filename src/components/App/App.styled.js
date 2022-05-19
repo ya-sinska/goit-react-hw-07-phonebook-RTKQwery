@@ -1,12 +1,20 @@
 import styled from "@emotion/styled";
-export const Container = styled.div`
+import BG from '../../images/background.jpg'
+export const Background = styled.div`
+background-image: url(${BG});
+text-align:center;
+`
+
+export const Grid = styled.div`
+padding: 30px;
 display: flex;
-flex-direction:column;
-align-items:center;
 `
 export const Title = styled.h1`
 color: hsl(210deg 8% 20%);
-margin-bottom:10px;
+margin:0 0 10px 0;
+padding-top:20px;
+
+
 `
 
 export const SecondTitle = styled.h2`

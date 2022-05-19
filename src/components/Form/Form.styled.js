@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
-export const ContactForm = styled.form`
-border: 2px solid tomato;
-box-shadow: 0px 0px 5px 4px rgba(217,58,58,0.75);
-max-width:500px;
-padding: 30px 20px;
-text-align: center;
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+export const PaperForm = styled(Paper)`
+   margin-right:50px;
+   max-width:500px;
+   padding: 30px 20px;
+   text-align: center;
+   background-image: inherit;
 `
 export const InputField = styled.input`
     &:not(:last-child){
@@ -34,20 +36,7 @@ export const Error = styled.p`
    font-size:16px;
    text-align: center; 
    `
-export const BtnSubmitForm = styled.button`
-display: inline-flex;
-justify-content: center;
-align-items: center;
+export const BtnSubmitForm = styled(Button)`
 margin-top:30px;
-min-width: 160px;
-height: 44px;
-color: hsl(210deg 8% 20%);
-background-color: tomato;
-border: 0;
-border-radius: 22px;
-font-family: inherit;
-font-weight: 700;
-font-size: inherit;
-line-height: 1.31;
 
 `
