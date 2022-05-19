@@ -1,23 +1,20 @@
 import styled from "@emotion/styled";
-import BG from '../../images/background.jpg'
-export const Background = styled.div`
-background-image: url(${BG});
-text-align:center;
+
+export const Box = styled.div`
+display: flex;
+align-items:center;
+flex-direction:column;
+margin-bottom:30px;
 `
 
 export const Grid = styled.div`
-padding: 30px;
 display: flex;
+margin-bottom:30px;
+justify-content:space-around;
 `
 export const Title = styled.h1`
 color: hsl(210deg 8% 20%);
-margin:0 0 10px 0;
+margin:0 0 15px 0;
 padding-top:20px;
-
-
 `
 
-export const SecondTitle = styled.h2`
-color: hsl(210deg 8% 20%);
-margin: 20px 0 15px 0;
-`

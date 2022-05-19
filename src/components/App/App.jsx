@@ -1,28 +1,27 @@
 import { Forma } from "../Form/Form";
 import { Contacts } from '../Contacts/Contacts'
 import { Filter } from "../Filter/Filter";
-import { Grid, Title, SecondTitle, Background } from "./App.styled";
+import { Grid, Title, Box } from "./App.styled";
 import Container from '@mui/material/Container';
 
 export const App = () => {
   
   return (
-    <Background>
     <Container>
-      <Title>Phonebook</Title>
+    <Box>
+      <Title>Your phonebook</Title>
+      <Filter />
+    </Box>
       <Grid>
-      <div>
         <Forma />
-      </div>
-      <div>
-        <SecondTitle>Contacts</SecondTitle>
-        <Filter/>
-        <Contacts />
-      </div>
-        
-    </Grid>
-    </Container>        
-    </Background>
+        <div>
+          
+          <Contacts />
+        </div>
+      </Grid>
+      
+    </Container>
+    
   
   ) 
 }

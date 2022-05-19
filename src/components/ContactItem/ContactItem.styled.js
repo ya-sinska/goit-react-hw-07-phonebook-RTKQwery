@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import Avatar from '@mui/material/Avatar';
-
+import ListItemText from '@mui/material/ListItemText';
 export const Item = styled(ListItem)`
 &:not(:last-child){
     margin-bottom:10px;
@@ -13,7 +13,7 @@ min-width:370px;
 export const AvatarIcon = styled(Avatar)`
 margin-right:10px;
 `
-export const Name = styled.span`
+export const Name = styled(ListItemText)`
 text-transform: capitalize;
 `
 export const Delete = styled(DeleteIcon)`

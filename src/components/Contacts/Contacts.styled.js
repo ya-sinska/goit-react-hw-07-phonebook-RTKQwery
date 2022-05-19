@@ -1,13 +1,18 @@
 import styled from "@emotion/styled";
-
-export const ContactList = styled.ul`
-border: 1px solid tomato;
-box-shadow: 0px 0px 5px 4px rgba(217,58,58,0.75);
-padding:15px;
-min-width:300px;
+import Paper from '@mui/material/Paper';
+export const PaperBoxContacts = styled(Paper)`
+margin-bottom:30px;
+max-width:500px;
+text-align:center;
+padding:15px 10px;
+background-color: #d6e4ee;
 `
 export const TextNotFind = styled.p`
 color: tomato;
 font-size:25px;
 font-weight:700;
+`
+export const SecondTitle = styled.h2`
+color: hsl(210deg 8% 20%);
+margin: 0 0 15px 0;
 `

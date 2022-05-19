@@ -9,7 +9,7 @@ export const useFormValues = () => {
             number:'+380'
         }
     });
-    const [addContact, result] = useAddContactsMutation();
+    const [addContact] = useAddContactsMutation();
     const { data:stateItems} = contactsItemSlice.useGetContactsQuery();
     const onSubmit = async (values) => {
         try {

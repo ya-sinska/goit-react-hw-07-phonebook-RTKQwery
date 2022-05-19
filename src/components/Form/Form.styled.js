@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 export const PaperForm = styled(Paper)`
-   margin-right:50px;
    max-width:500px;
    padding: 30px 20px;
    text-align: center;
-   background-image: inherit;
+   background-color: #d6e4ee;
+   max-height:250px;
+
 `
 export const InputField = styled.input`
     &:not(:last-child){
