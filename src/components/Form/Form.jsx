@@ -54,6 +54,5 @@ export const Forma = () => {
             <BtnSubmitForm variant="contained" type="submit">Add contact</BtnSubmitForm>      
             </form>
         </PaperForm>
-
     )
 }

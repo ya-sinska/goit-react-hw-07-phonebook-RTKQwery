@@ -6,7 +6,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 export const Contacts = () => {
-    const { filteredContacts, isLoading, error } = useContacts.useContacts();
+    const { filteredContacts, isLoading} = useContacts.useContacts();
     return (
         <PaperBoxContacts elevation={3}>
             <SecondTitle>Contacts List</SecondTitle>
