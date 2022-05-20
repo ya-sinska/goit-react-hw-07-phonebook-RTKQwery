@@ -3,11 +3,14 @@ import { Contacts } from '../Contacts/Contacts'
 import { Filter } from "../Filter/Filter";
 import { Grid, Title, Box } from "./App.styled";
 import Container from '@mui/material/Container';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
-  
+    
   return (
     <Container>
+    <ToastContainer />
     <Box>
       <Title>Your phonebook</Title>
       <Filter />
@@ -16,9 +19,6 @@ export const App = () => {
         <Forma />
         <Contacts />
       </Grid>
-      
     </Container>
-    
-  
   ) 
 }

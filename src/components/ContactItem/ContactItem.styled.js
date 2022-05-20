@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
-import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
-export const Item = styled(ListItem)`
+export const Item = styled(ListItemButton)`
 &:not(:last-child){
     margin-bottom:10px;
 }

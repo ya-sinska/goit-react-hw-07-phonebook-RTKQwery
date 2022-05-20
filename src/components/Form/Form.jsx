@@ -7,8 +7,7 @@ const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-я
 
 // Component Forma
 export const Forma = () => {
-    const { register, handleSubmit, errors, onSubmit } = useFormValues.useFormValues();
-    
+    const { register, handleSubmit, errors, onSubmit, isLoading } = useFormValues.useFormValues();
     return (
         <PaperForm>
             <form
@@ -51,7 +50,7 @@ export const Forma = () => {
                 placeholder="+38(000)000-00-00"
             />
             {errors.number&&<Error>{errors.number?.message }</Error>  }     
-            <BtnSubmitForm variant="contained" type="submit">Add contact</BtnSubmitForm>      
+                <BtnSubmitForm disabled={isLoading} variant="contained" type="submit">Add contact</BtnSubmitForm>      
             </form>
         </PaperForm>
     )

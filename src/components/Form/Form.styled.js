@@ -39,5 +39,4 @@ export const Error = styled.p`
    `
 export const BtnSubmitForm = styled(Button)`
 margin-top:30px;
-
 `
