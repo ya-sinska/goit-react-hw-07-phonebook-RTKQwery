@@ -14,10 +14,7 @@ export const App = () => {
     </Box>
       <Grid>
         <Forma />
-        <div>
-          
-          <Contacts />
-        </div>
+        <Contacts />
       </Grid>
       
     </Container>

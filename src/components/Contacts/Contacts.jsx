@@ -1,35 +1,34 @@
-import {PaperBoxContacts, TextNotFind, SecondTitle } from './Contacts.styled'
+import {PaperBoxContacts, SecondTitle } from './Contacts.styled'
 import { ContactItem } from '../ContactItem/ContactItem';
-import { useGetContactsQuery } from 'redux/contactsItemSlice';
-import {  contactsFilterSlice } from '../../redux'
-import { useSelector } from 'react-redux'
-import * as React from 'react';
 import List from '@mui/material/List';
-
+import { useContacts } from 'hooks';
+import Skeleton from '@mui/material/Skeleton';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 export const Contacts = () => {
-    const filter = useSelector(contactsFilterSlice.getFilterValue);
-    const { data } =  useGetContactsQuery();
-    const filteredContacts = () => {
-        return filter ? data.filter(
-            item => item.name
-                .toLowerCase()
-                .includes(filter.toLowerCase())) : data;     
-    }
-    const contacts = filteredContacts();
-
+    const { filteredContacts, isLoading, error } = useContacts.useContacts();
     return (
         <PaperBoxContacts elevation={3}>
             <SecondTitle>Contacts List</SecondTitle>
-            {contacts&&contacts.length > 0 ?
-                (<List dense sx={{ width: '100%', maxWidth: 360, bgcolor: '#d6e4ee' }}>
-                    {contacts.map(({ id, name, number }) => 
-                        <ContactItem
-                            key={id}
-                            name={name}
-                            number={number}
-                            id={id}/>
-                    )}</List>) : (<TextNotFind>There is no contacts</TextNotFind >)
+            {isLoading ? Array.from(new Array(4)).map((item, index) => (<Skeleton key={index}  width={360} height={50} />)):
+                (   <>
+                    {filteredContacts.length > 0 ?
+                    (<List dense sx={{ width: '100%', maxWidth: 360, bgcolor: '#d6e4ee' }}>
+                        {filteredContacts.map(({ id, name, number }) =>
+                            <ContactItem
+                                key={id}
+                                name={name}
+                                number={number}
+                                id={id} />
+                            )}</List>) :
+                        (<Stack sx={{ width: '100%' }} spacing={2}>
+                            <Alert severity="error">There is No contact in your contacts list!</Alert>
+                        </Stack>)
+                    }
+                    </> 
+                )
             }
+
         </PaperBoxContacts>
     )
-}
+};

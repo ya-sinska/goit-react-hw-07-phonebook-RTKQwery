@@ -7,11 +7,6 @@ text-align:center;
 padding:15px 10px;
 background-color: #d6e4ee;
 `
-export const TextNotFind = styled.p`
-color: tomato;
-font-size:25px;
-font-weight:700;
-`
 export const SecondTitle = styled.h2`
 color: hsl(210deg 8% 20%);
 margin: 0 0 15px 0;

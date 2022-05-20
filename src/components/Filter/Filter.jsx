@@ -2,7 +2,10 @@ import { useChange } from 'hooks';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
+import { useSelector } from 'react-redux';
+import { getFilterValue } from 'redux/contactsFilterSlice';
 export const Filter = () => {
+   const filter =useSelector(getFilterValue)
     const change = useChange.useChange();
  return (
 
@@ -13,7 +16,7 @@ export const Filter = () => {
             variant="standard"
             type="text"
             name="filter" onChange={change} 
-            // helperText="Please enter name"
+            value={filter}
             label="Find contacts by name"
     />
       </Box>
