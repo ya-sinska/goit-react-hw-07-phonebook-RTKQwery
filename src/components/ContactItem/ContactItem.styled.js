@@ -10,7 +10,7 @@ export const Item = styled(ListItem)`
     margin-bottom:10px;
 }
 &:hover{
-    background-color: lightgray;
+    background-color: #f0efed;
 }
 min-width:370px;
 `

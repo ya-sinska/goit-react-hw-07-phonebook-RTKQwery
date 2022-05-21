@@ -1,5 +1,3 @@
-// import { useFormValues } from 'hooks';
-
 import { PaperForm, InputField, Label, Error, BtnSubmitForm } from './Form.styled'
 
 // Patterns
@@ -9,7 +7,6 @@ const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-я
 // Component Forma
 export const Forma = ({ btnText, formSettings, id}) => {
     const { register, handleSubmit, errors, onSubmit, isLoading, contact } = formSettings(id);
-   
     return (
         <PaperForm>
             <form
