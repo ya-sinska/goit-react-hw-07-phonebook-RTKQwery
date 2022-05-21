@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useUpdateContactMutation} from "redux/contactsItemSlice";
 import { useEffect} from "react";
-import { sucsessAdd, errorAdd } from "utils/notification";
+import { sucsessEdit, errorEdit } from "utils/notification";
 import { useGetContactsByIdQuery } from 'redux/contactsItemSlice';
 
 export const useEditorForm = (id) => {
@@ -9,8 +9,8 @@ export const useEditorForm = (id) => {
     const { register, handleSubmit, formState: { errors } } = useForm({});
     const [updateContact, { isLoading, isSuccess, isError }] = useUpdateContactMutation();
     useEffect(() => {
-        isSuccess && sucsessAdd();
-        isError && errorAdd();
+        isSuccess && sucsessEdit();
+        isError && errorEdit();
     }, [isError, isSuccess]);
     const handleUpdateContact = async fields => {
     try {
