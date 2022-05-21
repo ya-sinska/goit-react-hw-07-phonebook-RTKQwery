@@ -7,9 +7,9 @@ const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?
 const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
 // Component Forma
-export const Forma = ({ btnText, formSettings, id }) => {
+export const Forma = ({ btnText, formSettings, id}) => {
     const { register, handleSubmit, errors, onSubmit, isLoading, contact } = formSettings(id);
-    
+   
     return (
         <PaperForm>
             <form
@@ -24,7 +24,7 @@ export const Forma = ({ btnText, formSettings, id }) => {
                 {...register("name", {
                     required: "This is required",
                     minLength: {
-                        value: 5,
+                        value: 1,
                         message: "Min length is 5 symbols",
                     },
                     pattern: {

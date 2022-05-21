@@ -36,7 +36,7 @@ export const contactsItemApi = createApi({
         method: 'PUT',
         body: fields,
       }),
-      invalidatesTags: ['Material'],
+      invalidatesTags: ['Items'],
     }),
   }),
 })

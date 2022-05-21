@@ -1,31 +1,26 @@
 import { useForm } from "react-hook-form";
-import {  useAddContactsMutation, useUpdateContactMutation} from "redux/contactsItemSlice";
-import { useEffect } from "react";
+import { useUpdateContactMutation} from "redux/contactsItemSlice";
+import { useEffect} from "react";
 import { sucsessAdd, errorAdd } from "utils/notification";
 import { useGetContactsByIdQuery } from 'redux/contactsItemSlice';
+
 export const useEditorForm = (id) => {
     const { data: contact } = useGetContactsByIdQuery(id);
     const { register, handleSubmit, formState: { errors } } = useForm({});
-    // const [addContact, {isLoading, isSuccess, isError}] = useAddContactsMutation();
-    const [updateContact, {isLoading, isSuccess, isError}] = useUpdateContactMutation;
+    const [updateContact, { isLoading, isSuccess, isError }] = useUpdateContactMutation();
     useEffect(() => {
         isSuccess && sucsessAdd();
         isError && errorAdd();
     }, [isError, isSuccess]);
-console.log(updateContact)
-    const onSubmit = async (values) => {
-        try {
-            const item = {
-            
-            name: values.name ,
-            number: values.number,
-            } 
-            // await updateContact({...item});
-        }
-        catch (error) {
-            error();    
-        }
-
+    const handleUpdateContact = async fields => {
+    try {
+      await updateContact({ id: id, ...fields });
+    } catch (error) {
+      console.log(error);
+    }
     };
-    return{register,handleSubmit, errors, onSubmit, isLoading, contact}
+    const onSubmit = async (values) => {
+        await handleUpdateContact(values);
+  };
+    return { register, handleSubmit, errors, onSubmit, isLoading, contact};
 }

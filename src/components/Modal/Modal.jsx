@@ -27,7 +27,7 @@ export const Modal = ({ onClose, id}) => {
   return createPortal(      
       (<Overlay  onClick={handleBackdropClick}>
             <ModalBox >         
-        <Forma btnText='Save chahges' formSettings={useEditorForm} id={id}/>
+        <Forma btnText='Save chahges' formSettings={useEditorForm} id={id} />
           </ModalBox>
         </Overlay>), modalRoot )
 }
