@@ -26,9 +26,21 @@ export const contactsItemApi = createApi({
       }),
         invalidatesTags:['Items'],
     }),
+    getContactsById: builder.query({
+      query: id => `/contacts/${id}`,
+      providesTags: ['Items'],
+    }),
+    updateContact: builder.mutation({
+      query: fields => ({
+        url: `/contacts/${fields.id}`,
+        method: 'PUT',
+        body: fields,
+      }),
+      invalidatesTags: ['Material'],
+    }),
   }),
 })
 
-export const { useGetContactsQuery, useAddContactsMutation, useDeleteContactsMutation} = contactsItemApi;
+export const {useUpdateContactMutation, useGetContactsByIdQuery, useGetContactsQuery, useAddContactsMutation, useDeleteContactsMutation} = contactsItemApi;
 // Selectors
 // export const getItemsValue = (state) => state.items.value;

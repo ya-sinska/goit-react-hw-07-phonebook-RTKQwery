@@ -1,4 +1,5 @@
-import { useFormValues } from 'hooks';
+// import { useFormValues } from 'hooks';
+
 import { PaperForm, InputField, Label, Error, BtnSubmitForm } from './Form.styled'
 
 // Patterns
@@ -6,8 +7,9 @@ const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?
 const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
 // Component Forma
-export const Forma = () => {
-    const { register, handleSubmit, errors, onSubmit, isLoading } = useFormValues.useFormValues();
+export const Forma = ({ btnText, formSettings, id }) => {
+    const { register, handleSubmit, errors, onSubmit, isLoading, contact } = formSettings(id);
+    
     return (
         <PaperForm>
             <form
@@ -18,6 +20,7 @@ export const Forma = () => {
             <InputField
                 id="name"
                 type="text"
+                defaultValue={contact?(contact.name):('')}
                 {...register("name", {
                     required: "This is required",
                     minLength: {
@@ -36,6 +39,7 @@ export const Forma = () => {
             <InputField
                 id="number"
                 type="tel"
+                defaultValue={contact?(contact.number):('')}
                 {...register("number", {
                     required: "This is required",
                     maxLength: {
@@ -50,7 +54,7 @@ export const Forma = () => {
                 placeholder="+38(000)000-00-00"
             />
             {errors.number&&<Error>{errors.number?.message }</Error>  }     
-                <BtnSubmitForm disabled={isLoading} variant="contained" type="submit">Add contact</BtnSubmitForm>      
+            <BtnSubmitForm disabled={isLoading} variant="contained" type="submit">{btnText}</BtnSubmitForm>      
             </form>
         </PaperForm>
     )

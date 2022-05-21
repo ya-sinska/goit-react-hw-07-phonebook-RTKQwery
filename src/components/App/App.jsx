@@ -5,7 +5,7 @@ import { Grid, Title, Box } from "./App.styled";
 import Container from '@mui/material/Container';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useFormValues } from 'hooks';
 export const App = () => {
     
   return (
@@ -16,7 +16,7 @@ export const App = () => {
       <Filter />
     </Box>
       <Grid>
-        <Forma />
+        <Forma btnText='Add contact' formSettings={useFormValues.useFormValues}/>
         <Contacts />
       </Grid>
     </Container>
