@@ -1,15 +1,15 @@
 import { useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { Overlay, ModalBox } from "./Modal.styled"
+import { Overlay, ModalBox, CloseBtn } from "./Modal.styled"
 import { createPortal } from 'react-dom';
 import { Forma } from 'components/Form/Form';
-import { useEditorForm } from 'hooks/UseEditorForm';
-
+import { useModalForm } from 'hooks/UseModalForm';
+import CloseIcon from '@mui/icons-material/Close';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, id}) => {
- 
+ const {register, handleSubmit, errors, onSubmit, contact, isLoading}= useModalForm( onClose, id)
   useEffect(() => {
    const handleKeyDown = e => {
      if (e.code === 'Escape') {
@@ -26,8 +26,9 @@ export const Modal = ({ onClose, id}) => {
  };
   return createPortal(      
       (<Overlay  onClick={handleBackdropClick}>
-            <ModalBox >         
-        <Forma btnText='Save chahges' formSettings={useEditorForm} id={id} />
+          <ModalBox >         
+            <Forma btnText='Save chahges' register={register} handleSubmit={handleSubmit} errors={errors} contact={contact} isLoading={isLoading} onSubmit={onSubmit} />
+            <CloseBtn type='button' onClick={()=>onClose()}><CloseIcon/></CloseBtn>
           </ModalBox>
         </Overlay>), modalRoot )
 }

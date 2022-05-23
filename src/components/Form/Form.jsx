@@ -5,8 +5,7 @@ const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?
 const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
 // Component Forma
-export const Forma = ({ btnText, formSettings, id}) => {
-    const { register, handleSubmit, errors, onSubmit, isLoading, contact } = formSettings(id);
+export const Forma = ({ btnText, register, handleSubmit, errors, onSubmit, contact, isLoading}) => {
     return (
         <PaperForm>
             <form
@@ -17,7 +16,7 @@ export const Forma = ({ btnText, formSettings, id}) => {
             <InputField
                 id="name"
                 type="text"
-                defaultValue={contact?(contact.name):('')}
+                defaultValue={contact&&(contact.name)}
                 {...register("name", {
                     required: "This is required",
                     minLength: {
@@ -36,7 +35,7 @@ export const Forma = ({ btnText, formSettings, id}) => {
             <InputField
                 id="number"
                 type="tel"
-                defaultValue={contact?(contact.number):('')}
+                defaultValue={contact&&(contact.number)}
                 {...register("number", {
                     required: "This is required",
                     maxLength: {
